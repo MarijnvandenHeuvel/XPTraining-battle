@@ -34,8 +34,15 @@ public class Soldier {
     }
 
     public Soldier fight(Soldier otherSoldier){
-        int ownDamage = this.weapon.amountOfDamage();
-        int otherDamage = otherSoldier.weapon.amountOfDamage();
+        int ownDamage = determineWeaponDamage(this,otherSoldier);
+        int otherDamage = determineWeaponDamage(otherSoldier,this);
         return (ownDamage >= otherDamage) ? this: otherSoldier;
+    }
+
+    public int determineWeaponDamage(Soldier soldier, Soldier otherSoldier){
+        if(soldier.weapon.amountOfDamage()==10){
+            return (otherSoldier.weapon.amountOfDamage()%2!=0) ? 0 : soldier.weapon.amountOfDamage();
+        }
+        return soldier.weapon.amountOfDamage();
     }
 }

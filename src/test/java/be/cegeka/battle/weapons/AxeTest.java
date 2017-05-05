@@ -9,5 +9,4 @@ public class AxeTest {
     public void amountOfDamage_shouldReturn3() {
         assertThat(new Axe().amountOfDamage()).isEqualTo(3);
     }
-
 }
