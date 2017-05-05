@@ -1,14 +1,13 @@
 package be.cegeka.battle.weapons;
 
-import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class BareFistTest {
     @Test
     public void amountOfDamage() throws Exception {
-        Assertions.assertThat(new BareFist().amountOfDamage()).isEqualTo(1);
+        assertThat(new BareFist().amountOfDamage()).isEqualTo(1);
     }
 
 }
