@@ -10,6 +10,7 @@ public class Soldier {
 
     private final String name;
     private Weapon weapon;
+    private SoldierId id;
 
     public Soldier(String name) {
         Validate.isTrue(isNotBlank(name));
@@ -37,5 +38,13 @@ public class Soldier {
         int ownDamage = this.weapon.amountOfDamage();
         int otherDamage = otherSoldier.weapon.amountOfDamage();
         return (ownDamage >= otherDamage) ? this: otherSoldier;
+    }
+
+    public SoldierId getId() {
+        return id;
+    }
+
+    public void addId(SoldierId soldierId) {
+        this.id = soldierId;
     }
 }
