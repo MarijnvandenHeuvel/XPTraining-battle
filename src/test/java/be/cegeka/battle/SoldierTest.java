@@ -55,4 +55,29 @@ public class SoldierTest {
         assertThat(soldier.getWeapon()).isEqualTo("Sword");
     }
 
+    @Test
+    public void SoldierFightsWithHighestWeapon_ThenWinsFight(){
+        Soldier soldier = new Soldier("name",new Axe());
+        Soldier otherSoldier = new Soldier("name",new Sword());
+
+        assertThat(soldier.fight(otherSoldier)).isEqualTo(soldier);
+    }
+
+    @Test
+    public void SoldierFightsWithLowestWeaponDamage_ThenLosesFight(){
+        Soldier soldier = new Soldier("name");
+        Soldier otherSoldier = new Soldier("name",new Spear());
+
+        assertThat(soldier.fight(otherSoldier)).isEqualTo(otherSoldier);
+
+    }
+
+    @Test
+    public void SoldierFightsWithEqualWeaponDamage_ThenWinsFight(){
+        Soldier soldier = new Soldier("name",new Spear());
+        Soldier otherSoldier = new Soldier("name",new Sword());
+
+        assertThat(soldier.fight(otherSoldier)).isEqualTo(soldier);
+
+    }
 }

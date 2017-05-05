@@ -32,4 +32,10 @@ public class Soldier {
     public String getWeapon() {
         return weapon.getName();
     }
+
+    public Soldier fight(Soldier otherSoldier){
+        int ownDamage = this.weapon.amountOfDamage();
+        int otherDamage = otherSoldier.weapon.amountOfDamage();
+        return (ownDamage >= otherDamage) ? this: otherSoldier;
+    }
 }
