@@ -1,13 +1,13 @@
 package be.cegeka.battle.weapons;
 
-import org.assertj.core.api.Assertions;
 import org.junit.Test;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class AxeTest {
 
     @Test
     public void amountOfDamage_shouldReturn3() {
-        Assertions.assertThat(new Axe().amountOfDamage()).isEqualTo(3);
+        assertThat(new Axe().amountOfDamage()).isEqualTo(3);
     }
 
 }
