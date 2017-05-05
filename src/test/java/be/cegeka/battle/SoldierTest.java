@@ -28,4 +28,28 @@ public class SoldierTest {
         new Soldier("   ");
     }
 
+    @Test
+    public void SoldierHasOnlyOneWeaponDefaultBareFist() throws Exception {
+        Soldier soldier = new Soldier("name");
+        assertThat(soldier.getWeapon()).isEqualTo("Bare fist");
+    }
+
+    @Test
+    public void SoldierHasOnlyOneWeaponCanBeGivenAsParameterAxe() throws Exception {
+        Soldier soldier = new Soldier("name",new Axe());
+        assertThat(soldier.getWeapon()).isEqualTo("Axe");
+    }
+
+    @Test
+    public void SoldierHasOnlyOneWeaponCanBeGivenAsParameterSpear() throws Exception {
+        Soldier soldier = new Soldier("name",new Spear());
+        assertThat(soldier.getWeapon()).isEqualTo("Spear");
+    }
+
+    @Test
+    public void SoldierHasOnlyOneWeaponCanBeGivenAsParameterSword() throws Exception {
+        Soldier soldier = new Soldier("name",new Sword());
+        assertThat(soldier.getWeapon()).isEqualTo("Sword");
+    }
+
 }
