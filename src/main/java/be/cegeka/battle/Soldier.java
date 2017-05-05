@@ -30,4 +30,11 @@ public class Soldier {
     public String getWeapon() {
         return weapon.getName();
     }
+
+    public Soldier fight(Soldier otherSoldier){
+        
+        //compare weapon damage --> greatest damage wins
+        //if equal --> attacker wins
+        return this;
+    }
 }
