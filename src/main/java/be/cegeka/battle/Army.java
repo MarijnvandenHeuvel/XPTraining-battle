@@ -4,7 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Army {
-    private List<Soldier> soldiers = new ArrayList<>();
+
+    List<Soldier> soldiers;
+    private HeadQuarters headQuarter;
+
+    public Army(HeadQuarters headQuarters) {
+        soldiers = new ArrayList<>();
+        this.headQuarter = headQuarters;
+    }
 
     public Soldier getFrontMan() {
         return !soldiers.isEmpty() ? soldiers.get(0) :  null;
@@ -12,6 +19,8 @@ public class Army {
 
     public void addSoldier(Soldier soldier) {
         soldiers.add(soldier);
+        SoldierId soldierId = new SoldierId(headQuarter.reportEnlistment(soldier));
+        soldier.addId(soldierId);
     }
 
     public Army EngageInWar(Army otherArmy) {
@@ -44,3 +53,4 @@ public class Army {
         return !army.soldiers.isEmpty();
     }
 }
+

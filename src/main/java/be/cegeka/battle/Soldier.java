@@ -10,6 +10,7 @@ public class Soldier {
 
     private final String name;
     private Weapon weapon;
+    private SoldierId id;
 
     public Soldier(String name) {
         Validate.isTrue(isNotBlank(name));
@@ -39,10 +40,18 @@ public class Soldier {
         return (ownDamage >= otherDamage) ? this: otherSoldier;
     }
 
-    public int determineWeaponDamage(Soldier soldier, Soldier otherSoldier){
-        if(soldier.weapon.amountOfDamage()==10){
-            return (otherSoldier.weapon.amountOfDamage()%2!=0) ? 0 : soldier.weapon.amountOfDamage();
+    private int determineWeaponDamage(Soldier soldier, Soldier otherSoldier) {
+        if (soldier.weapon.amountOfDamage() == 10) {
+            return (otherSoldier.weapon.amountOfDamage() % 2 != 0) ? 0 : soldier.weapon.amountOfDamage();
         }
         return soldier.weapon.amountOfDamage();
+    }
+
+    public SoldierId getId() {
+        return id;
+    }
+
+    public void addId(SoldierId soldierId) {
+        this.id = soldierId;
     }
 }
