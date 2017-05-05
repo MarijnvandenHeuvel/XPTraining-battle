@@ -4,21 +4,43 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Army {
-    List<Soldier> soldiers = new ArrayList<>();
+    private List<Soldier> soldiers = new ArrayList<>();
 
     public Soldier getFrontMan() {
-        return soldiers.get(0);
+        return !soldiers.isEmpty() ? soldiers.get(0) :  null;
     }
 
     public void addSoldier(Soldier soldier) {
         soldiers.add(soldier);
     }
 
-    public be.cegeka.battle.Army EngageInWar(be.cegeka.battle.Army otherArmy) {
-        //get first soldier of both armies
-        //fight
-        //remove lost soldier from armyList
-        //continue until one army is empty
-        return this;
+    public Army EngageInWar(Army otherArmy) {
+        while(soldiersLeftInArmy(this)){
+            if(!soldiersLeftInArmy(otherArmy)){break;}
+            fightWithArmy(otherArmy);
+        }
+        return soldiersLeftInArmy(this) ? this : otherArmy;
+    }
+
+    private void fightWithArmy(Army otherArmy) {
+        Soldier myFrontMan = this.getFrontMan();
+        Soldier otherFrontMan = otherArmy.getFrontMan();
+        if(FrontmenArePresent(myFrontMan, otherFrontMan)) {
+            Soldier winner = myFrontMan.fight(otherFrontMan);
+
+            if(myFrontMan.equals(winner)){
+                otherArmy.soldiers.remove(otherFrontMan);
+            } else {
+                this.soldiers.remove(myFrontMan);
+            }
+        }
+    }
+
+    private boolean FrontmenArePresent(Soldier myFrontMan, Soldier otherFrontMan) {
+        return myFrontMan != null && otherFrontMan != null;
+    }
+
+    private boolean soldiersLeftInArmy(Army army){
+        return !army.soldiers.isEmpty();
     }
 }
