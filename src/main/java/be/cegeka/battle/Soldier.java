@@ -34,9 +34,8 @@ public class Soldier {
     }
 
     public Soldier fight(Soldier otherSoldier){
-        
-        //compare weapon damage --> greatest damage wins
-        //if equal --> attacker wins
-        return this;
+        int ownDamage = this.weapon.amountOfDamage();
+        int otherDamage = otherSoldier.weapon.amountOfDamage();
+        return (ownDamage >= otherDamage) ? this: otherSoldier;
     }
 }
