@@ -1,5 +1,7 @@
 package be.cegeka.battle;
 
+import be.cegeka.battle.weapons.BareFist;
+import be.cegeka.battle.weapons.Weapon;
 import org.apache.commons.lang3.Validate;
 
 import static org.apache.commons.lang3.StringUtils.isNotBlank;

@@ -1,4 +1,4 @@
-package be.cegeka.battle;
+package be.cegeka.battle.weapons;
 
 public class BareFist implements Weapon {
     private String name="Bare fist";
@@ -6,5 +6,10 @@ public class BareFist implements Weapon {
     @Override
     public String getName() {
         return name;
+    }
+
+    @Override
+    public int amountOfDamage() {
+        return 1;
     }
 }
